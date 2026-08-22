@@ -67,3 +67,39 @@ cheia.
 ## Paleta de culori
 
 Definită în `tailwind.config.ts`: navy `#0F1B3D`, orange `#F5A319`.
+
+## Pagini individuale de proiect
+
+Fiecare proiect din portofoliu are acum pagina lui proprie, cu galerie de
+poze proprie și lightbox: `/proiecte/[slug]` (ex: `/proiecte/casa-zalau-rotaru`).
+
+- Datele tuturor celor 14 proiecte sunt în `lib/projects.ts` — editezi acolo
+  titlul, locația, descrierea sau pozele fiecărui proiect.
+- Pozele sunt în `public/images/projects/`, denumite `[slug]-1.jpg`,
+  `[slug]-2.jpg` etc.
+- Pentru a adăuga un proiect nou: adaugi o intrare nouă în `lib/projects.ts`
+  și pui pozele corespunzătoare în `public/images/projects/` — pagina se
+  generează automat, nu trebuie creat niciun fișier nou.
+- Momentan majoritatea proiectelor au 1-2 poze (atât am putut extrage din
+  catalogul PDF pe care mi l-ai trimis) — poți adăuga oricâte poze noi vrei
+  per proiect, doar completezi array-ul `images` din `lib/projects.ts`.
+
+## Upgrade UI/UX (ultima rundă)
+
+- **Meniu mobil** — lipsea complet înainte; acum e un hamburger funcțional
+  cu panou glisant, pe toate paginile.
+- **Header inteligent** — capătă umbră fină la scroll, sticky pe toate
+  paginile.
+- **Animații la scroll** — secțiunile apar cu fade-in/slide-in discret pe
+  măsură ce dai scroll (folosind `framer-motion`), pe toate paginile.
+- **Micro-interacțiuni** — hover-uri cu ridicare ușoară pe butoane, zoom mai
+  lent și mai natural pe imagini, umbre colorate la hover pe carduri.
+- **Formular de ofertă îmbunătățit** — spinner de încărcare, mesaj de succes
+  animat, focus states mai clare pe câmpuri.
+- **Breadcrumb** pe fiecare pagină de proiect (Acasă / Proiecte / Nume proiect).
+- **Favicon real** — generat automat din logo-ul tău (`app/icon.png`).
+- **Loading skeleton** — se afișează un placeholder discret în timp ce se
+  încarcă o pagină nouă, în loc de ecran alb.
+
+Nu am schimbat structura de conținut sau pozele — doar polish vizual și
+funcțional peste ce exista deja.

@@ -17,10 +17,10 @@ export default function Footer({ showForm = true }: { showForm?: boolean }) {
           </p>
 
           <div className="mt-8 flex flex-col gap-4">
-            <a href="tel:0756943626" className="flex items-center gap-3 text-white">
+            <a href="tel:0756943626" className="flex items-center gap-3 text-white transition-colors hover:text-orange">
               <PhoneIcon /> 0756 943 626
             </a>
-            <a href="mailto:office@savhaus.com" className="flex items-center gap-3 text-white">
+            <a href="mailto:office@savhaus.com" className="flex items-center gap-3 text-white transition-colors hover:text-orange">
               <MailIcon /> office@savhaus.com
             </a>
             <div className="flex items-center gap-3 text-white">

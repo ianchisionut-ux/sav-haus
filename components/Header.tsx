@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PhoneIcon } from "./Icons";
@@ -11,16 +14,39 @@ const navLinks = [
 ];
 
 export default function Header({ active = "/" }: { active?: string }) {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white">
+    <header
+      className={`sticky top-0 z-50 bg-white/95 backdrop-blur transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_1px_20px_rgba(15,27,61,0.08)]" : "border-b border-gray-100"
+      }`}
+    >
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-3 lg:px-10">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center" onClick={() => setMenuOpen(false)}>
           <Image
             src="/images/logo.png"
             alt="Sav Haus"
             width={140}
             height={72}
-            className="h-12 w-auto object-contain"
+            className="h-11 w-auto object-contain md:h-12"
             priority
           />
         </Link>
@@ -41,7 +67,7 @@ export default function Header({ active = "/" }: { active?: string }) {
           ))}
         </nav>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 md:gap-6">
           <a
             href="tel:0756943626"
             className="hidden items-center gap-2 text-sm font-semibold text-navy lg:flex"
@@ -50,11 +76,74 @@ export default function Header({ active = "/" }: { active?: string }) {
           </a>
           <Link
             href="/oferta"
-            className="rounded-md bg-orange px-5 py-2.5 text-sm font-bold text-white shadow-sm shadow-orange/30 transition-colors hover:bg-orange-dark"
+            className="hidden rounded-md bg-orange px-5 py-2.5 text-sm font-bold text-white shadow-sm shadow-orange/30 transition-colors hover:bg-orange-dark sm:inline-block"
           >
             Cere ofertă
           </Link>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? "Închide meniul" : "Deschide meniul"}
+            aria-expanded={menuOpen}
+            className="relative flex h-10 w-10 items-center justify-center rounded-md text-navy transition-colors hover:bg-graybg md:hidden"
+          >
+            <span className="relative block h-4 w-5">
+              <span
+                className={`absolute left-0 top-0 h-0.5 w-5 bg-navy transition-all duration-300 ${
+                  menuOpen ? "top-[7px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-[7px] h-0.5 w-5 bg-navy transition-all duration-300 ${
+                  menuOpen ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-[14px] h-0.5 w-5 bg-navy transition-all duration-300 ${
+                  menuOpen ? "top-[7px] -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
         </div>
+      </div>
+
+      {/* Mobile menu panel */}
+      <div
+        className={`overflow-hidden transition-[max-height] duration-300 ease-in-out md:hidden ${
+          menuOpen ? "max-h-96" : "max-h-0"
+        }`}
+      >
+        <nav className="flex flex-col gap-1 border-t border-gray-100 bg-white px-6 py-4">
+          {navLinks.map((l) => (
+            <Link
+              key={l.label}
+              href={l.href}
+              onClick={() => setMenuOpen(false)}
+              className={
+                l.href === active
+                  ? "rounded-md bg-orange/10 px-3 py-2.5 text-sm font-bold text-orange"
+                  : "rounded-md px-3 py-2.5 text-sm font-semibold text-navy hover:bg-graybg"
+              }
+            >
+              {l.label}
+            </Link>
+          ))}
+          <a
+            href="tel:0756943626"
+            className="mt-1 flex items-center gap-2 rounded-md px-3 py-2.5 text-sm font-semibold text-navy hover:bg-graybg"
+          >
+            <PhoneIcon /> 0756 943 626
+          </a>
+          <Link
+            href="/oferta"
+            onClick={() => setMenuOpen(false)}
+            className="mt-2 rounded-md bg-orange px-3 py-3 text-center text-sm font-bold text-white"
+          >
+            Cere ofertă
+          </Link>
+        </nav>
       </div>
     </header>
   );
