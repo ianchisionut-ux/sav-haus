@@ -12,6 +12,8 @@ import {
   ChatIcon,
   StarIcon,
   HouseIcon,
+  CheckIcon,
+  HandshakeIcon,
   CheckShieldIcon,
   PinIcon,
   ArrowIcon,
@@ -161,6 +163,61 @@ export default function Home() {
         </FadeIn>
         <FadeIn delay={0.1}>
           <ProjectsGrid projects={projects.slice(0, 4)} />
+        </FadeIn>
+      </section>
+
+      {/* DE CE SAV HAUS */}
+      <section className="mx-auto max-w-[1440px] px-6 pb-20 lg:px-10">
+        <FadeIn>
+          <div className="rounded-2xl bg-gradient-to-br from-navy-soft to-navy p-8 md:p-12">
+            <h2 className="text-2xl font-extrabold text-white md:text-3xl">
+              De ce Sav Haus?
+            </h2>
+            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+              {[
+                {
+                  text: "Nu ne limităm la metodele clasice. Combinăm măiestria dulgheriei tradiționale cu tehnologii moderne de proiectare și execuție. Rezultatul? Acoperișuri și structuri din lemn care nu doar arată bine, ci sunt calculate să reziste la intemperii și trecerea timpului, oferindu-ți siguranța de care ai nevoie.",
+                  icon: <HouseIcon />,
+                  label: "Rezistență",
+                },
+                {
+                  text: "Spre deosebire de firmele care fac „de toate\u201d, noi am ales să fim cei mai buni pe nișa noastră. De ani de zile, facem exclusiv construcții din lemn și acoperișuri. Această specializare ne-a permis să cunoaștem secretele lemnului în detaliu, astfel încât să anticipăm orice provocare tehnică și să oferim soluții de montaj impecabile.",
+                  icon: <CheckIcon />,
+                  label: "Experiență",
+                },
+                {
+                  text: "Suntem o firmă autorizată, ceea ce înseamnă că lucrăm profesional, curat și cu responsabilitate. Deși oferim standarde înalte de execuție, ne menținem tarifele competitive. Alegând SAV HAUS, beneficiezi de raportul corect între prețul investit și durabilitatea lucrării, fără compromisuri.",
+                  icon: <HandshakeIcon />,
+                  label: "Calitate/Preț",
+                },
+              ].map((item, i) => (
+                <FadeIn key={item.label} delay={i * 0.1}>
+                  <div className="flex h-full flex-col justify-between rounded-xl bg-white p-6">
+                    <p className="text-sm leading-relaxed text-gray-600">{item.text}</p>
+                    <div className="mt-6 flex items-center gap-3">
+                      {item.icon}
+                      <span className="text-base font-bold text-navy">{item.label}</span>
+                    </div>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.1}>
+          <div className="mt-12 text-center">
+            <h3 className="text-xl font-extrabold text-navy md:text-2xl">
+              Construcții din lemn realizate cu profesionalism și atenție la
+              detalii.
+            </h3>
+            <Link
+              href="/oferta"
+              className="mt-6 inline-block rounded-md border-2 border-orange px-7 py-3 text-sm font-bold text-orange transition-all hover:-translate-y-0.5 hover:bg-orange hover:text-white"
+            >
+              Cere o ofertă
+            </Link>
+          </div>
         </FadeIn>
       </section>
 

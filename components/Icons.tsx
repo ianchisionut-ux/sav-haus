@@ -85,6 +85,23 @@ export function RulerIcon() {
     </svg>
   );
 }
+export function CheckIcon() {
+  return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5A319" strokeWidth="2.2">
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+}
+export function HandshakeIcon() {
+  return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5A319" strokeWidth="1.8">
+      <path d="M12 3v18" />
+      <path d="M5 7h14" />
+      <path d="M5 7 2 13a3 3 0 0 0 6 0z" />
+      <path d="M19 7l-3 6a3 3 0 0 0 6 0z" />
+    </svg>
+  );
+}
 export function MailIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
