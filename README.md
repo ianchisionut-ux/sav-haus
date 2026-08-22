@@ -1,8 +1,19 @@
-# Sav Haus — Homepage (Next.js + Tailwind)
+# Sav Haus — Site complet (Next.js + Tailwind)
 
-Recreare a homepage-ului după designul din poza trimisă: header cu navigație,
-hero cu poză de fundal (macara + structură lemn), bară de statistici, secțiunea
-"Ce construim" (3 carduri cu imagine) și "Proiecte realizate".
+Site de prezentare cu 5 pagini + formular de ofertă care trimite automat
+email, construit pe stack-ul tău obișnuit (Next.js, TypeScript, Tailwind,
+gata de Vercel).
+
+## Pagini
+
+- `/` — Acasă
+- `/case-din-lemn` — Timber frame
+- `/acoperisuri` — Acoperișuri
+- `/proiecte` — Portofoliu (14 proiecte)
+- `/despre-noi` — Despre companie
+- `/oferta` — Formular complet de cerere ofertă
+
+Formularul de ofertă apare și compact în footer, pe toate paginile.
 
 ## Rulare locală
 
@@ -11,42 +22,48 @@ npm install
 npm run dev
 ```
 
-Apoi deschide http://localhost:3000
+## ⚠️ Activarea trimiterii automate de email (obligatoriu)
 
-## Deploy pe Vercel
+Formularul "Cere ofertă" trimite emailul prin [Resend](https://resend.com) —
+un serviciu de email tranzacțional, gratuit până la 3000 emailuri/lună,
+folosit și la celelalte proiecte ale tale (Dracula's Soil, Signal etc).
 
-```bash
-vercel
-```
+**Pași:**
 
-sau conectează repo-ul din dashboard-ul Vercel — nu are nevoie de nicio
-variabilă de mediu, e un site 100% static.
+1. Creează cont gratuit pe https://resend.com și confirmă emailul.
+2. Din dashboard, mergi la **API Keys** → **Create API Key** → copiază cheia
+   (începe cu `re_...`).
+3. (Opțional, dar recomandat) Adaugă și verifică domeniul `sav-haus.ro` la
+   **Domains** în Resend, ca emailurile să plece de pe adresa ta, nu de pe
+   domeniul de test al lor. Durează câteva minute — Resend îți dă niște
+   înregistrări DNS (TXT/MX) de adăugat la domeniul tău.
+4. În proiectul Vercel → **Settings** → **Environment Variables**, adaugă:
+
+   | Nume | Valoare |
+   |---|---|
+   | `RESEND_API_KEY` | cheia copiată la pasul 2 |
+   | `OFERTA_DESTINATION_EMAIL` | `office@savhaus.com` (unde ajung cererile) |
+   | `OFERTA_FROM_EMAIL` | `Sav Haus <oferta@sav-haus.ro>` (dacă ai verificat domeniul; altfel lasă implicit) |
+
+5. Redeploy (Vercel face asta automat la următorul push, sau apeși
+   "Redeploy" manual din dashboard).
+
+**Fără `RESEND_API_KEY` setat, formularul afișează un mesaj de eroare clar**
+(nu trimite emailul "în gol" și nu se preface că a mers) — testat local, îl
+poți verifica rulând `npm run dev` și încercând formularul înainte să pui
+cheia.
 
 ## Ce conține
 
-- `app/page.tsx` — tot homepage-ul (header, hero, stats, carduri, proiecte, footer)
-- `app/layout.tsx` — layout global + metadata SEO
-- `public/images/` — pozele reale extrase din catalogul tău PDF (le poți
-  înlocui oricând cu poze noi, păstrând aceleași nume de fișier)
-- Paleta de culori (navy `#0F1B3D`, orange `#F5A319`) e definită în
-  `tailwind.config.ts` — modifici acolo dacă vrei să ajustezi nuanțele
+- `app/page.tsx` — homepage
+- `app/*/page.tsx` — celelalte 4 pagini de conținut
+- `app/api/oferta/route.ts` — endpoint-ul care trimite emailul prin Resend
+- `components/OfertaForm.tsx` — formularul (folosit compact în footer și
+  complet pe pagina `/oferta`)
+- `components/Header.tsx`, `components/Footer.tsx` — navigare + footer comune
+- `public/images/logo.png` — logo-ul tău real
+- `public/images/*.jpg` — pozele reale din catalogul PDF
 
-## De completat
+## Paleta de culori
 
-Ai cerut doar homepage-ul deocamdată. Linkurile din navigație
-(Case din lemn, Acoperișuri, Proiecte, Despre noi) și butonul "Cere ofertă"
-sunt pregătite dar duc încă spre `#` — le facem pagini reale când vrei să
-continuăm cu restul site-ului.
-
-## Notă despre font
-
-Am folosit stack-ul de fonturi de sistem (`-apple-system, Segoe UI, Roboto...`)
-în loc să încarc Inter din Google Fonts la build, ca să nu depindă build-ul de
-un fetch extern. Dacă vrei exact Inter, adaugă în `app/layout.tsx`:
-
-```tsx
-import { Inter } from "next/font/google";
-const inter = Inter({ subsets: ["latin"] });
-```
-
-și pune `className={inter.className}` pe `<body>`.
+Definită în `tailwind.config.ts`: navy `#0F1B3D`, orange `#F5A319`.

@@ -1,164 +1,24 @@
 import Image from "next/image";
-
-function Logo() {
-  return (
-    <div className="flex items-center gap-2">
-      <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
-        <path
-          d="M20 4L36 16V36H24V24H16V36H4V16L20 4Z"
-          stroke="#F5A319"
-          strokeWidth="3"
-          strokeLinejoin="round"
-          fill="none"
-        />
-      </svg>
-      <div className="leading-none">
-        <div className="text-lg font-extrabold tracking-tight text-navy">
-          SAV
-        </div>
-        <div className="text-[10px] font-semibold tracking-[0.25em] text-navy-soft -mt-0.5">
-          HAUS
-        </div>
-      </div>
-    </div>
-  );
-}
-
-const navLinks = [
-  { label: "Acasă", href: "#", active: true },
-  { label: "Case din lemn", href: "#" },
-  { label: "Acoperișuri", href: "#" },
-  { label: "Proiecte", href: "#" },
-  { label: "Despre noi", href: "#" },
-];
-
-function PhoneIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-    </svg>
-  );
-}
-
-function ShieldIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" />
-    </svg>
-  );
-}
-function HardHatIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M4 18a8 8 0 0 1 16 0" />
-      <path d="M2 18h20" />
-      <path d="M12 4v6" />
-      <path d="M8 18v-4a4 4 0 0 1 8 0v4" />
-    </svg>
-  );
-}
-function ChatIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-    </svg>
-  );
-}
-function StarIcon() {
-  return (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5A319" strokeWidth="1.8">
-      <path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 16.9l-6.2 3.4 1.6-6.8L2.2 8.9l6.9-.6L12 2z" />
-    </svg>
-  );
-}
-function HouseIcon() {
-  return (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5A319" strokeWidth="1.8">
-      <path d="M3 11l9-8 9 8" />
-      <path d="M5 10v10h14V10" />
-      <path d="M9 20v-6h6v6" />
-    </svg>
-  );
-}
-function CheckShieldIcon() {
-  return (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5A319" strokeWidth="1.8">
-      <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" />
-      <path d="M9 12l2 2 4-4" />
-    </svg>
-  );
-}
-function PinIcon() {
-  return (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5A319" strokeWidth="1.8">
-      <path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z" />
-      <circle cx="12" cy="9" r="2.5" />
-    </svg>
-  );
-}
-function ArrowIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-      <path d="M5 12h14" />
-      <path d="M13 6l6 6-6 6" />
-    </svg>
-  );
-}
-function LocationSmallIcon() {
-  return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6B7280" strokeWidth="2">
-      <path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z" />
-      <circle cx="12" cy="9" r="2.5" />
-    </svg>
-  );
-}
-function RulerIcon() {
-  return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6B7280" strokeWidth="2">
-      <rect x="3" y="8" width="18" height="8" rx="1" />
-      <path d="M7 8v3M11 8v3M15 8v3" />
-    </svg>
-  );
-}
+import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import {
+  ShieldIcon,
+  HardHatIcon,
+  ChatIcon,
+  StarIcon,
+  HouseIcon,
+  CheckShieldIcon,
+  PinIcon,
+  ArrowIcon,
+  LocationSmallIcon,
+  RulerIcon,
+} from "@/components/Icons";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* NAV */}
-      <header className="border-b border-gray-100">
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-4 lg:px-10">
-          <Logo />
-          <nav className="hidden items-center gap-9 md:flex">
-            {navLinks.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                className={
-                  l.active
-                    ? "border-b-2 border-orange pb-1 text-sm font-semibold text-orange"
-                    : "text-sm font-semibold text-navy hover:text-orange transition-colors"
-                }
-              >
-                {l.label}
-              </a>
-            ))}
-          </nav>
-          <div className="flex items-center gap-6">
-            <a
-              href="tel:0758123456"
-              className="hidden items-center gap-2 text-sm font-semibold text-navy lg:flex"
-            >
-              <PhoneIcon /> 0758 123 456
-            </a>
-            <a
-              href="#contact"
-              className="rounded-md bg-orange px-5 py-2.5 text-sm font-bold text-white shadow-sm shadow-orange/30 transition-colors hover:bg-orange-dark"
-            >
-              Cere ofertă
-            </a>
-          </div>
-        </div>
-      </header>
+      <Header active="/" />
 
       {/* HERO */}
       <section className="relative h-[520px] w-full overflow-hidden">
@@ -183,18 +43,18 @@ export default function Home() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#contact"
+            <Link
+              href="/oferta"
               className="rounded-md bg-orange px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange/30 transition-colors hover:bg-orange-dark"
             >
               Solicită estimare
-            </a>
-            <a
-              href="#proiecte"
+            </Link>
+            <Link
+              href="/proiecte"
               className="rounded-md border-2 border-white px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-white hover:text-navy"
             >
               Vezi proiectele
-            </a>
+            </Link>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-8">
@@ -224,8 +84,8 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <HouseIcon />
             <div>
-              <div className="text-xl font-extrabold text-navy">120+</div>
-              <div className="text-sm text-gray-500">lucrări</div>
+              <div className="text-xl font-extrabold text-navy">14+</div>
+              <div className="text-sm text-gray-500">proiecte publicate</div>
             </div>
           </div>
           <div className="flex items-center gap-4">
@@ -249,13 +109,13 @@ export default function Home() {
         <h2 className="mb-8 text-3xl font-extrabold text-navy">Ce construim</h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {[
-            { title: "Case pe structură de lemn", img: "/images/card-case.jpg" },
-            { title: "Acoperișuri", img: "/images/card-roof.jpg" },
-            { title: "Structuri speciale", img: "/images/card-special.jpg" },
+            { title: "Case pe structură de lemn", img: "/images/card-case.jpg", href: "/case-din-lemn" },
+            { title: "Acoperișuri", img: "/images/card-roof.jpg", href: "/acoperisuri" },
+            { title: "Structuri speciale", img: "/images/card-special.jpg", href: "/proiecte" },
           ].map((card) => (
-            <a
+            <Link
               key={card.title}
-              href="#"
+              href={card.href}
               className="group relative block h-[280px] overflow-hidden rounded-xl"
             >
               <Image
@@ -271,14 +131,19 @@ export default function Home() {
                   <ArrowIcon />
                 </span>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
 
       {/* PROIECTE REALIZATE */}
-      <section id="proiecte" className="mx-auto max-w-[1440px] px-6 pb-20 lg:px-10">
-        <h2 className="mb-8 text-3xl font-extrabold text-navy">Proiecte realizate</h2>
+      <section className="mx-auto max-w-[1440px] px-6 pb-20 lg:px-10">
+        <div className="mb-8 flex items-center justify-between">
+          <h2 className="text-3xl font-extrabold text-navy">Proiecte realizate</h2>
+          <Link href="/proiecte" className="text-sm font-bold text-orange hover:text-orange-dark">
+            Vezi toate proiectele →
+          </Link>
+        </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {[
             {
@@ -315,14 +180,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER (minimal, homepage-only build) */}
-      <footer id="contact" className="border-t border-gray-100 bg-navy">
-        <div className="mx-auto max-w-[1440px] px-6 py-10 text-center lg:px-10">
-          <p className="text-sm text-gray-300">
-            © {new Date().getFullYear()} Sav Haus &middot; office@savhaus.com &middot; 0758 123 456
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
