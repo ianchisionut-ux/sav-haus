@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FeaturedProjects from "@/components/FeaturedProjects";
 import {
   ShieldIcon,
   HardHatIcon,
@@ -11,8 +12,6 @@ import {
   CheckShieldIcon,
   PinIcon,
   ArrowIcon,
-  LocationSmallIcon,
-  RulerIcon,
 } from "@/components/Icons";
 
 export default function Home() {
@@ -145,38 +144,22 @@ export default function Home() {
           </Link>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {[
-            {
-              title: "Aframe Timișoara - M.D.",
-              img: "/images/project-aframe-timisoara.jpg",
-              location: "Timișoara, TM",
-              spec: "Amprentă de 8x11",
-            },
-            {
-              title: "Casă Zălău - R.D.",
-              img: "/images/project-casa-zalau.jpg",
-              location: "Zălău, SJ",
-              spec: "Casă parter (200m²)",
-            },
-          ].map((p) => (
-            <div
-              key={p.title}
-              className="flex overflow-hidden rounded-xl border border-gray-100"
-            >
-              <div className="relative h-[170px] w-[220px] flex-shrink-0">
-                <Image src={p.img} alt={p.title} fill className="object-cover" />
-              </div>
-              <div className="flex flex-col justify-center gap-2 px-6">
-                <h3 className="text-lg font-bold text-navy">{p.title}</h3>
-                <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <LocationSmallIcon /> {p.location}
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <RulerIcon /> {p.spec}
-                </div>
-              </div>
-            </div>
-          ))}
+          <FeaturedProjects
+            projects={[
+              {
+                title: "Aframe Timișoara - M.D.",
+                img: "/images/project-aframe-timisoara.jpg",
+                location: "Timișoara, TM",
+                spec: "Amprentă de 8x11",
+              },
+              {
+                title: "Casă Zălău - R.D.",
+                img: "/images/project-casa-zalau.jpg",
+                location: "Zălău, SJ",
+                spec: "Casă parter (200m²)",
+              },
+            ]}
+          />
         </div>
       </section>
 

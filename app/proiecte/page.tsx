@@ -1,8 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { LocationSmallIcon } from "@/components/Icons";
+import ProjectsGallery from "@/components/ProjectsGallery";
 
 const projects = [
   { title: "Acoperiș Cluj — V.I.", img: "/images/proj-1.jpg", location: "Cluj-Napoca, CJ" },
@@ -34,20 +33,12 @@ export default function Proiecte() {
           Zalău, Stoboru și Timișoara.
         </p>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {projects.map((p) => (
-            <div key={p.title} className="overflow-hidden rounded-xl border border-gray-100">
-              <div className="relative h-[160px] w-full">
-                <Image src={p.img} alt={p.title} fill className="object-cover" />
-              </div>
-              <div className="p-4">
-                <h3 className="text-sm font-bold text-navy">{p.title}</h3>
-                <div className="mt-1.5 flex items-center gap-1.5 text-xs text-gray-500">
-                  <LocationSmallIcon /> {p.location}
-                </div>
-              </div>
-            </div>
-          ))}
+        <p className="mt-2 text-sm text-gray-400">
+          Apasă pe orice poză pentru a o vedea mărită.
+        </p>
+
+        <div className="mt-10">
+          <ProjectsGallery projects={projects} />
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-6 rounded-xl bg-navy p-8 sm:flex-row sm:items-center">
