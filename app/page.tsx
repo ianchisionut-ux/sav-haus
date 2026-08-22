@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import FadeIn from "@/components/FadeIn";
+import HeroSlideshow from "@/components/HeroSlideshow";
 import { projects } from "@/lib/projects";
 import {
   ShieldIcon,
@@ -23,12 +24,15 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative h-[560px] w-full overflow-hidden md:h-[600px]">
-        <Image
-          src="/images/hero.jpg"
-          alt="Construcție casă din lemn cu macara"
-          fill
-          priority
-          className="object-cover"
+        <HeroSlideshow
+          images={[
+            { src: "/images/hero.jpg", alt: "Construcție casă din lemn cu macara" },
+            { src: "/images/timber-hero.jpg", alt: "Casă timber frame finalizată" },
+            { src: "/images/roof-hero.jpg", alt: "Acoperiș din lemn, vedere aeriană" },
+            { src: "/images/projects/aframe-timisoara-md-1.jpg", alt: "Casă A-frame Timișoara" },
+            { src: "/images/projects/etaj-stoboru-sd-1.jpg", alt: "Extindere pe verticală din lemn" },
+            { src: "/images/about.jpg", alt: "Structură din lemn în construcție" },
+          ]}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/92 via-navy/60 to-navy/15" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent" />
