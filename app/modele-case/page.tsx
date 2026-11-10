@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SectionDivider from "@/components/SectionDivider";
 import { houseModels, catalogPdf } from "@/lib/houseModels";
 
 export const metadata = {
@@ -22,7 +23,8 @@ export default function ModelsPage() {
           <a href="#colectie" className="sav-gold-button mt-10 inline-flex px-7 py-4 text-xs font-bold">Explorează modelele <span className="ml-3">↓</span></a>
         </div>
       </section>
-      <section id="colectie" className="mx-auto max-w-[1440px] px-6 py-20 lg:px-10">
+      <section id="colectie" className="sav-technical-grid mx-auto max-w-[1440px] px-6 py-20 lg:px-10">
+        <SectionDivider index="08" label="Modele arhitecturale" className="mb-6" />
         <div className="mb-12 flex flex-wrap items-end justify-between gap-5">
           <div><p className="sav-eyebrow">COLECȚIA COMPLETĂ</p><h2 className="sav-display mt-4 text-5xl md:text-7xl">Alege configurația <em>potrivită.</em></h2></div>
           <a href={catalogPdf} target="_blank" rel="noopener noreferrer" className="sav-outline-button inline-flex items-center gap-3 border border-[#2b4344]/30 px-5 py-3 text-xs font-bold">Catalog complet PDF <span>↗</span></a>

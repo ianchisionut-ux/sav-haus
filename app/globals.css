@@ -25,6 +25,28 @@ button, input, textarea, select { font-family: inherit; }
 .sav-collection-section { background-image: linear-gradient(rgba(16,39,42,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(16,39,42,.025) 1px,transparent 1px); background-size: 80px 80px; }
 .sav-services-section { background: #fff; }
 .sav-hero-title { text-shadow: 0 3px 22px rgba(0,0,0,.28); }
+.sav-technical-grid {
+  background-image: linear-gradient(rgba(16,39,42,.024) 1px, transparent 1px), linear-gradient(90deg,rgba(16,39,42,.024) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+.sav-dark-grid {
+  position: relative;
+  background-image: linear-gradient(rgba(249,152,45,.045) 1px, transparent 1px), linear-gradient(90deg,rgba(249,152,45,.045) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.sav-corner-accent { position: relative; isolation: isolate; }
+.sav-corner-accent::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  border-right: 2px solid #F9982D;
+  border-bottom: 2px solid #F9982D;
+}
+.sav-section-rule { user-select: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .sav-gold-button, .sav-outline-light, .sav-model-card { transition: none; }

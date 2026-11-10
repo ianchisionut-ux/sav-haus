@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import FadeIn from "@/components/FadeIn";
+import SectionDivider from "@/components/SectionDivider";
 import { projects } from "@/lib/projects";
 
 export const metadata = {
@@ -15,7 +16,8 @@ export default function Proiecte() {
     <main className="min-h-screen bg-white">
       <Header active="/proiecte" />
 
-      <section className="mx-auto max-w-[1440px] px-6 py-14 lg:px-10">
+      <section className="sav-technical-grid mx-auto max-w-[1440px] px-6 py-14 lg:px-10">
+        <SectionDivider index="14" label="Portofoliu / Lucrări executate" className="mb-5" />
         <FadeIn>
           <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-orange">
             <span className="h-1.5 w-6 rounded bg-orange" /> Lucrări executate
@@ -31,13 +33,13 @@ export default function Proiecte() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="mt-10">
+          <div className="mt-10 border-t border-[#a7b6af]/45 pt-7">
             <ProjectsGrid projects={projects} />
           </div>
         </FadeIn>
 
         <FadeIn>
-          <div className="mt-14 flex flex-col items-start justify-between gap-6 rounded-xl bg-navy p-8 sm:flex-row sm:items-center">
+          <div className="sav-corner-accent sav-dark-grid mt-14 flex flex-col items-start justify-between gap-6 bg-navy p-8 sm:flex-row sm:items-center">
             <div>
               <h2 className="text-2xl font-extrabold text-white">
                 Vrei să vezi proiectul tău aici?
@@ -49,7 +51,7 @@ export default function Proiecte() {
             </div>
             <Link
               href="/oferta"
-              className="whitespace-nowrap rounded-md bg-orange px-7 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-orange-dark"
+              className="sav-gold-button whitespace-nowrap px-7 py-3.5 text-sm font-bold"
             >
               Cere ofertă →
             </Link>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SectionDivider from "@/components/SectionDivider";
 import { houseModels, catalogPdf } from "@/lib/houseModels";
 
 export function generateStaticParams() {
@@ -36,7 +37,8 @@ export default function HouseModelDetail({params}:{params:{id:string}}) {
         </div>
       </div>
     </section>
-    <section className="mx-auto max-w-[1360px] px-6 py-20 lg:px-10">
+    <section className="sav-technical-grid mx-auto max-w-[1360px] px-6 py-20 lg:px-10">
+      <SectionDivider index={model.id} label="Compartimentare și planuri" className="mb-6" />
       <p className="sav-eyebrow">MODELUL {model.id} / COMPARTIMENTARE</p>
       <h2 className="sav-display mt-4 text-5xl md:text-7xl">Gândită pentru <em>viața de zi cu zi.</em></h2>
       <p className="mt-5 max-w-2xl text-base leading-8 text-[#60756d]">{model.description}</p>

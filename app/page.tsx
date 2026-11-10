@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import FadeIn from "@/components/FadeIn";
 import HeroScrollVideo from "@/components/HeroScrollVideo";
+import SectionDivider from "@/components/SectionDivider";
 import { projects } from "@/lib/projects";
 import {
   ShieldIcon,
@@ -28,30 +29,31 @@ export default function Home() {
       <section id="hero-film" className="relative h-[440svh] w-full bg-[#081923]">
         <div className="sticky top-[72px] h-[calc(100svh-72px)] min-h-[500px] overflow-hidden lg:top-[86px] lg:h-[calc(100svh-86px)]">
           <HeroScrollVideo />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#081923]/20 via-[#081923]/10 to-transparent" />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#081923]/12 via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-[#081923]/20 via-[#081923]/10 to-transparent" />
+          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-t from-[#081923]/12 via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 top-[36%] bottom-0 bg-gradient-to-b from-transparent via-[#081923]/95 to-[#081923] md:hidden" />
           <div className="pointer-events-none absolute inset-0 opacity-[.03]" style={{ backgroundSize: "90px 90px", backgroundImage: "linear-gradient(#dce9e5 1px,transparent 1px),linear-gradient(90deg,#dce9e5 1px,transparent 1px)", maskImage: "linear-gradient(to right,black,transparent 70%)" }} />
-          <div className="relative mx-auto flex h-full max-w-[1480px] flex-col justify-center px-5 pb-16 pt-9 sm:px-8 lg:px-12">
-            <div className="mb-5 flex items-center gap-4 text-[10px] font-bold tracking-[.24em] text-[#F9982D] sm:mb-7">
+          <div className="relative mx-auto flex h-full max-w-[1480px] flex-col justify-end px-5 pb-10 pt-[38%] sm:px-8 md:justify-center md:pb-16 md:pt-9 lg:px-12">
+            <div className="mb-3 flex items-center gap-3 text-[9px] font-bold tracking-[.16em] sm:mb-7 sm:gap-4 sm:text-[10px] sm:tracking-[.24em] text-[#F9982D] sm:mb-7">
               <span className="h-px w-10 bg-[#F9982D]" /> SAV HAUS / CONSTRUCȚII DIN LEMN
             </div>
-            <h1 className="sav-hero-title sav-display max-w-[940px] text-[clamp(48px,7.4vw,108px)] leading-[.98] tracking-[-.06em] text-white">
+            <h1 className="sav-hero-title sav-display max-w-[940px] text-[clamp(32px,9vw,48px)] leading-[1.02] tracking-[-.05em] md:text-[clamp(48px,7.4vw,108px)] md:leading-[.98] md:tracking-[-.06em] text-white">
               Construim case.<br /><em className="font-normal text-[#F9982D]">Creăm acasă.</em>
             </h1>
-            <p className="mt-6 max-w-[520px] text-[14px] leading-[1.85] text-[#d8e2df] md:mt-9 md:text-[16px]">
+            <p className="mt-3 max-w-[520px] text-[12px] leading-[1.65] sm:text-sm md:leading-[1.85] text-[#d8e2df] md:mt-9 md:text-[16px]">
               Case pe structură de lemn, acoperișuri și structuri speciale. De la proiectare la montaj, fiecare detaliu contează.
             </p>
-            <div className="mt-7 flex flex-wrap gap-3 sm:mt-9">
-              <Link href="/modele-case" className="sav-gold-button inline-flex items-center gap-6 px-6 py-4 text-xs font-bold">Descoperă modelele <span aria-hidden="true">↗</span></Link>
-              <Link href="/proiecte" className="sav-outline-light inline-flex items-center gap-6 px-6 py-4 text-xs font-bold">Lucrări realizate <span aria-hidden="true">↗</span></Link>
+            <div className="mt-4 grid grid-cols-2 gap-2 sm:mt-9 sm:flex sm:flex-wrap sm:gap-3">
+              <Link href="/modele-case" className="sav-gold-button inline-flex items-center justify-center gap-1 px-3 py-3 text-center text-[10px] font-bold sm:gap-6 sm:px-6 sm:py-4 sm:text-xs">Descoperă modelele <span aria-hidden="true">↗</span></Link>
+              <Link href="/proiecte" className="sav-outline-light inline-flex items-center justify-center gap-1 px-3 py-3 text-center text-[10px] font-bold sm:gap-6 sm:px-6 sm:py-4 sm:text-xs">Lucrări realizate <span aria-hidden="true">↗</span></Link>
             </div>
-            <div className="mt-9 flex max-w-[700px] flex-wrap gap-x-7 gap-y-4 border-t border-white/25 pt-6 text-[11px] tracking-[.07em] text-white/80 sm:mt-12">
+            <div className="mt-9 hidden max-w-[700px] flex-wrap gap-x-7 gap-y-4 border-t border-white/25 pt-6 text-[11px] tracking-[.07em] text-white/80 md:flex md:mt-12">
               <span className="flex items-center gap-2"><ShieldIcon /> Firmă autorizată</span>
               <span className="flex items-center gap-2"><HardHatIcon /> Execuție specializată</span>
               <span className="flex items-center gap-2"><ChatIcon /> Consultanță tehnică</span>
             </div>
           </div>
-          <div className="pointer-events-none absolute bottom-7 left-5 right-5 flex items-center justify-between text-[10px] font-semibold tracking-[.2em] text-white/75 sm:left-8 sm:right-8 lg:left-12 lg:right-12">
+          <div className="pointer-events-none absolute bottom-7 left-5 right-5 hidden items-center justify-between text-[10px] font-semibold tracking-[.2em] text-white/75 sm:left-8 sm:right-8 md:flex lg:left-12 lg:right-12">
             <span>DERULEAZĂ PENTRU A EXPLORA</span><span>01 / CONSTRUCȚIA</span>
           </div>
         </div>
@@ -60,6 +62,7 @@ export default function Home() {
       {/* MODELELE SAV HAUS — documentație din catalogul furnizat */}
       <section className="sav-collection-section bg-[#f5f2eb] px-6 py-20 text-[#12252c] lg:px-10 lg:py-28">
         <div className="mx-auto max-w-[1360px]">
+          <SectionDivider index="01" label="Colecția de case" className="mb-6" />
           <div className="mb-11 flex flex-wrap items-end justify-between gap-8">
             <div><p className="sav-eyebrow">COLECȚIA DE CASE / 2026</p><h2 className="sav-display mt-5 text-[clamp(44px,6vw,86px)] leading-[1.03]">Acasă începe<br /><em>cu un plan bun.</em></h2></div>
             <div className="max-w-[330px]"><p className="text-sm leading-7 text-[#687c76]">8 modele, de la parter compact la case generoase cu mansardă sau etaj. Planuri și randări într-un singur loc.</p><Link href="/modele-case" className="mt-5 inline-flex items-center gap-6 border-b border-[#203d40] pb-2 text-xs font-bold tracking-[.07em]">Vezi toate cele 8 modele <span>↗</span></Link></div>
@@ -80,7 +83,7 @@ export default function Home() {
       </section>
 
       {/* STATS BAR */}
-      <section className="bg-[#eae8df]">
+      <section className="border-y border-[#b6b4a9]/30 bg-[#eae8df]">
         <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-8 px-6 py-10 md:grid-cols-4 lg:px-10">
           {[
             { icon: <StarIcon />, big: "10+", small: "ani experiență" },
@@ -89,7 +92,7 @@ export default function Home() {
             { icon: <PinIcon />, big: "România", small: null },
           ].map((s, i) => (
             <FadeIn key={s.big} delay={i * 0.06}>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 border-l border-[#F9982D]/60 pl-4">
                 {s.icon}
                 <div>
                   <div className="sav-display text-[30px] text-[#12252c]">{s.big}</div>
@@ -103,6 +106,7 @@ export default function Home() {
 
       {/* CE CONSTRUIM */}
       <section className="sav-services-section mx-auto max-w-[1440px] px-6 py-20 lg:px-10 md:py-28">
+        <SectionDivider index="02" label="Servicii și specializări" className="mb-5" />
         <FadeIn>
           <h2 className="sav-display mb-10 text-5xl text-[#12252c] md:text-7xl">Ce construim</h2>
         </FadeIn>
@@ -138,6 +142,7 @@ export default function Home() {
 
       {/* PROIECTE REALIZATE */}
       <section className="mx-auto max-w-[1440px] px-6 pb-24 pt-8 lg:px-10">
+        <SectionDivider index="03" label="Lucrările noastre" className="mb-5" />
         <FadeIn>
           <div className="mb-8 flex items-center justify-between">
             <h2 className="sav-display text-5xl text-[#12252c] md:text-7xl">Proiecte realizate</h2>
@@ -154,7 +159,8 @@ export default function Home() {
       {/* DE CE SAV HAUS */}
       <section className="mx-auto max-w-[1440px] px-6 pb-28 lg:px-10">
         <FadeIn>
-          <div className="bg-[#081923] p-8 md:p-14">
+          <div className="sav-corner-accent sav-dark-grid bg-[#081923] p-8 md:p-14">
+            <SectionDivider index="04" label="De ce Sav Haus" dark className="mb-4" />
             <h2 className="sav-display text-5xl text-white md:text-7xl">
               De ce Sav Haus?
             </h2>
