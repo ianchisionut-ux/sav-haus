@@ -14,7 +14,7 @@ export default function ModelsPage() {
     <main className="bg-[#f5f2eb] text-[#12252c]">
       <Header active="/modele-case" />
       <section className="relative overflow-hidden bg-[#081923] px-6 pb-20 pt-24 text-white lg:px-10 lg:pb-28 lg:pt-32">
-        <div className="pointer-events-none absolute inset-0 opacity-20" style={{background:"linear-gradient(120deg,#081923 18%,transparent 75%),url('"+houseModels[5].image+"') center / cover"}}/>
+        <div className="pointer-events-none absolute inset-0 opacity-35" style={{background:"linear-gradient(120deg,#081923 18%,transparent 75%),url('"+houseModels[5].image+"') center / cover"}}/>
         <div className="relative mx-auto max-w-[1360px]">
           <p className="sav-eyebrow">SAV HAUS / COLECȚIA DE CASE / 2026</p>
           <h1 className="sav-display mt-8 max-w-4xl text-6xl leading-[.98] md:text-8xl">Acasă începe <em className="font-normal text-[#F9982D]">cu un plan bun.</em></h1>

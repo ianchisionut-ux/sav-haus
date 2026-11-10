@@ -20,7 +20,7 @@ export default function HouseModelDetail({params}:{params:{id:string}}) {
     <section className="relative overflow-hidden bg-[#081923] pb-16 text-white">
       <div className="relative h-[42vh] min-h-[300px] md:h-[65vh]">
         <img src={model.image} alt={"Randare ilustrativă Casa "+model.id} className="h-full w-full object-cover"/>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#081923] via-[#081923]/15 to-transparent"/>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#081923]/80 via-[#081923]/5 to-transparent"/>
       </div>
       <div className="relative z-10 mx-auto -mt-28 max-w-[1360px] px-6 lg:px-10">
         <Link href="/modele-case" className="text-xs tracking-widest text-[#F9982D] hover:text-white">← ÎNAPOI LA MODELE</Link>

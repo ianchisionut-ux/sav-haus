@@ -25,7 +25,7 @@ export const houseModels: HouseModel[] = [
     "plans": [
       {
         "name": "Parter",
-        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/56a638fa-3ce8-44eb-991c-a63a36578db5.jpg"
+        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/a5224071-320b-41bf-9b34-bb9920278dce.png"
       }
     ]
   },
@@ -41,7 +41,7 @@ export const houseModels: HouseModel[] = [
     "plans": [
       {
         "name": "Parter",
-        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/9fc13c89-3078-417d-bc3d-abd9aa2c90d1.jpg"
+        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/ededd370-7fdd-4aeb-b5c2-3243295e54f8.png"
       }
     ]
   },
@@ -57,7 +57,7 @@ export const houseModels: HouseModel[] = [
     "plans": [
       {
         "name": "Parter",
-        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/c2bf831e-dc47-4583-b5ab-b81676b84e56.jpg"
+        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/0b7fad67-106e-4897-a234-76ab2dcd8060.png"
       }
     ]
   },
@@ -73,7 +73,7 @@ export const houseModels: HouseModel[] = [
     "plans": [
       {
         "name": "Parter",
-        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/40b3293c-c8ef-4714-89b7-3bba143436d8.jpg"
+        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/920409ba-18a5-4334-add6-b91a363e0ca5.png"
       }
     ]
   },
@@ -89,7 +89,7 @@ export const houseModels: HouseModel[] = [
     "plans": [
       {
         "name": "Parter",
-        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/edc9e9dd-08d3-44f2-bab4-14ee4ec2a7e9.jpg"
+        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/f0e5379d-5065-4728-82c9-40d52682c370.png"
       }
     ]
   },
@@ -105,11 +105,11 @@ export const houseModels: HouseModel[] = [
     "plans": [
       {
         "name": "Parter",
-        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/11eefba5-14ee-45fe-8bd1-577d39ba2bec.jpg"
+        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/8014734d-7c7c-4ace-bc0a-2d8b7309b7c2.png"
       },
       {
         "name": "Mansardă",
-        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/f0ce52ea-a423-4b0c-a3c6-f53aca7938bd.jpg"
+        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/4fc36854-b915-4825-ba21-28cd3e3a0a7a.png"
       }
     ]
   },
@@ -125,11 +125,11 @@ export const houseModels: HouseModel[] = [
     "plans": [
       {
         "name": "Parter",
-        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/410053f8-9913-45f6-945d-7746ce383ea4.jpg"
+        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/58ee3e93-2571-403f-8c4d-ff71f87937c7.png"
       },
       {
         "name": "Mansardă",
-        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/4fa62d6f-737b-42ee-88cf-922e8d39a83c.jpg"
+        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/f9d3cf64-7fe3-47d3-ad00-74b6187cb164.png"
       }
     ],
     "areaNote": "Pentru Casa 07, centralizatorul indică 134,14 m², însă antetele planurilor însumează 132,14 m². Valoarea necesită confirmarea proiectantului."
@@ -146,11 +146,11 @@ export const houseModels: HouseModel[] = [
     "plans": [
       {
         "name": "Parter",
-        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/3c80ef94-5ac1-4abd-b3a5-1a34497c63e8.jpg"
+        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/0caf2a6d-5aa7-4332-9de5-c1396a4aae95.png"
       },
       {
         "name": "Etaj",
-        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/e5280ffd-b111-4ea1-a8b7-5d32816e9012.jpg"
+        "image": "https://d2ol7oe51mr4n9.cloudfront.net/user_3HXPUeIJkrFmhZmC3l4vOeEeAUl/fe1f9e63-c326-4b6f-bf63-3fa849ad46d4.png"
       }
     ]
   }

@@ -127,7 +127,7 @@ export default function Home() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/10 to-transparent transition-opacity group-hover:from-navy/90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/45 via-transparent to-transparent transition-opacity group-hover:from-navy/55" />
                 <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-5">
                   <span className="text-lg font-bold text-white">{card.title}</span>
                   <span className="flex h-9 w-9 items-center justify-center rounded-full bg-orange text-white transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110">
