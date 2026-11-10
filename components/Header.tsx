@@ -1,175 +1,156 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 import { PhoneIcon } from "./Icons";
 
-function FacebookIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z" />
-    </svg>
-  );
-}
-
-const navLinks = [
-  { label: "Acasă", href: "/" },
-  { label: "Case din lemn", href: "/case-din-lemn" },
-  { label: "Acoperișuri", href: "/acoperisuri" },
-  { label: "Proiecte", href: "/proiecte" },
-  { label: "Despre noi", href: "/despre-noi" },
+const links = [
+  { href: "/", label: "Acasă" },
+  { href: "/case-din-lemn", label: "Case din lemn" },
+  { href: "/acoperisuri", label: "Acoperișuri" },
+  { href: "/modele-case", label: "Modele de case" },
+  { href: "/proiecte", label: "Lucrări" },
+  { href: "/despre-noi", label: "Despre noi" },
 ];
 
 export default function Header({ active = "/" }: { active?: string }) {
   const [scrolled, setScrolled] = useState(false);
+  const [hovered, setHovered] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 8);
-    }
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const top = window.scrollY;
+      setScrolled((previous) => {
+        const next = top > 40;
+        return previous === next ? previous : next;
+      });
+      const distance = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      if (progressRef.current) {
+        progressRef.current.style.transform = "scaleX(" + Math.min(1, top / distance) + ")";
+      }
+    };
+    const schedule = () => {
+      if (!raf) raf = window.requestAnimationFrame(update);
+    };
+    schedule();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      if (raf) window.cancelAnimationFrame(raf);
+    };
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
+    setMenuOpen(false);
+  }, [active]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
     };
+    window.addEventListener("keydown", onEscape);
+    return () => window.removeEventListener("keydown", onEscape);
   }, [menuOpen]);
 
   return (
-    <header
-      className={`sticky top-0 z-50 bg-white/95 backdrop-blur transition-shadow duration-300 ${
-        scrolled ? "shadow-[0_1px_20px_rgba(15,27,61,0.08)]" : "border-b border-gray-100"
-      }`}
-    >
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-3 lg:px-10">
-        <Link href="/" className="flex items-center" onClick={() => setMenuOpen(false)}>
-          <Image
-            src="/images/logo.png"
-            alt="Sav Haus"
-            width={140}
-            height={72}
-            className="h-11 w-auto object-contain md:h-12"
-            priority
-          />
+    <header className={"sav-header sticky top-0 z-50 border-b transition-all duration-500 " +
+      (scrolled || menuOpen
+        ? "border-white/10 bg-[#081923]/95 shadow-[0_12px_40px_rgba(4,20,27,.16)] backdrop-blur-2xl"
+        : "border-white/15 bg-[#081923]/65 backdrop-blur-xl")}>
+      <div className="mx-auto flex h-[72px] w-full max-w-[1480px] items-center justify-between gap-3 px-5 transition-[height] duration-500 sm:px-8 lg:h-[86px] lg:px-12">
+        <Link href="/" onClick={() => setMenuOpen(false)} aria-label="Sav Haus — Acasă" className="group flex min-w-[112px] items-center">
+          <Image src="/images/logo.png" width={150} height={80} priority alt="Sav Haus" className="h-[43px] w-auto max-w-[140px] object-contain brightness-0 invert transition-transform duration-500 group-hover:scale-[1.035] lg:h-[51px]" />
         </Link>
 
-        <nav className="hidden items-center gap-9 md:flex">
-          {navLinks.map((l) => (
-            <Link
-              key={l.label}
-              href={l.href}
-              className={
-                l.href === active
-                  ? "border-b-2 border-orange pb-1 text-sm font-semibold text-orange"
-                  : "text-sm font-semibold text-navy transition-colors hover:text-orange"
-              }
-            >
-              {l.label}
-            </Link>
-          ))}
+        <nav aria-label="Navigare principală" className="hidden items-center gap-1 lg:flex" onMouseLeave={() => setHovered(null)}>
+          {links.map((link) => {
+            const selected = hovered === link.href || (hovered === null && active === link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onMouseEnter={() => setHovered(link.href)}
+                onFocus={() => setHovered(link.href)}
+                onBlur={() => setHovered(null)}
+                aria-current={active === link.href ? "page" : undefined}
+                className={"relative isolate px-4 py-3 text-[12px] font-medium tracking-[.035em] transition-colors duration-200 " +
+                  (selected ? "text-[#f4e2c4]" : "text-white/75 hover:text-white")}
+              >
+                {selected && (
+                  <motion.span
+                    layoutId="sav-nav-indicator"
+                    transition={{ type: "spring", stiffness: 420, damping: 33 }}
+                    className="absolute inset-0 -z-10 rounded-[3px] border border-[#d4b78d]/30 bg-[#d4b78d]/10"
+                  />
+                )}
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="flex items-center gap-3 md:gap-6">
-          <a
-            href="https://www.facebook.com/SavHausSRL"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Sav Haus pe Facebook"
-            className="hidden h-9 w-9 items-center justify-center rounded-full text-navy transition-colors hover:bg-graybg hover:text-orange lg:flex"
-          >
-            <FacebookIcon />
-          </a>
-          <a
-            href="tel:0756943626"
-            className="hidden items-center gap-2 text-sm font-semibold text-navy lg:flex"
-          >
+        <div className="flex items-center gap-2 sm:gap-4">
+          <a href="tel:0756943626" className="hidden items-center gap-2 text-xs font-medium text-white/80 transition-colors hover:text-[#ead1aa] xl:inline-flex">
             <PhoneIcon /> 0756 943 626
           </a>
-          <Link
-            href="/oferta"
-            className="hidden rounded-md bg-orange px-5 py-2.5 text-sm font-bold text-white shadow-sm shadow-orange/30 transition-colors hover:bg-orange-dark sm:inline-block"
-          >
-            Cere ofertă
+          <Link href="/oferta" onClick={() => setMenuOpen(false)}
+            className="sav-gold-button hidden items-center gap-3 px-5 py-3 text-[11px] font-bold tracking-[.07em] sm:inline-flex">
+            Cere ofertă <span aria-hidden="true">↗</span>
           </Link>
-
-          {/* Mobile hamburger */}
           <button
-            onClick={() => setMenuOpen((v) => !v)}
+            type="button"
             aria-label={menuOpen ? "Închide meniul" : "Deschide meniul"}
             aria-expanded={menuOpen}
-            className="relative flex h-10 w-10 items-center justify-center rounded-md text-navy transition-colors hover:bg-graybg md:hidden"
+            aria-controls="sav-mobile-nav"
+            onClick={() => setMenuOpen((previous) => !previous)}
+            className="relative flex h-[41px] w-[43px] items-center justify-center border border-white/25 text-white lg:hidden"
           >
             <span className="relative block h-4 w-5">
-              <span
-                className={`absolute left-0 top-0 h-0.5 w-5 bg-navy transition-all duration-300 ${
-                  menuOpen ? "top-[7px] rotate-45" : ""
-                }`}
-              />
-              <span
-                className={`absolute left-0 top-[7px] h-0.5 w-5 bg-navy transition-all duration-300 ${
-                  menuOpen ? "opacity-0" : "opacity-100"
-                }`}
-              />
-              <span
-                className={`absolute left-0 top-[14px] h-0.5 w-5 bg-navy transition-all duration-300 ${
-                  menuOpen ? "top-[7px] -rotate-45" : ""
-                }`}
-              />
+              <span className={"absolute left-0 top-[2px] h-[1.5px] w-full bg-white transition-transform duration-300 " + (menuOpen ? "translate-y-[6px] rotate-45" : "")} />
+              <span className={"absolute left-0 top-[8px] h-[1.5px] w-full bg-white transition-opacity duration-200 " + (menuOpen ? "opacity-0" : "")} />
+              <span className={"absolute left-0 top-[14px] h-[1.5px] w-full bg-white transition-transform duration-300 " + (menuOpen ? "-translate-y-[6px] -rotate-45" : "")} />
             </span>
           </button>
         </div>
       </div>
-
-      {/* Mobile menu panel */}
-      <div
-        className={`overflow-hidden transition-[max-height] duration-300 ease-in-out md:hidden ${
-          menuOpen ? "max-h-96" : "max-h-0"
-        }`}
-      >
-        <nav className="flex flex-col gap-1 border-t border-gray-100 bg-white px-6 py-4">
-          {navLinks.map((l) => (
-            <Link
-              key={l.label}
-              href={l.href}
-              onClick={() => setMenuOpen(false)}
-              className={
-                l.href === active
-                  ? "rounded-md bg-orange/10 px-3 py-2.5 text-sm font-bold text-orange"
-                  : "rounded-md px-3 py-2.5 text-sm font-semibold text-navy hover:bg-graybg"
-              }
-            >
-              {l.label}
-            </Link>
-          ))}
-          <a
-            href="tel:0756943626"
-            className="mt-1 flex items-center gap-2 rounded-md px-3 py-2.5 text-sm font-semibold text-navy hover:bg-graybg"
+      <AnimatePresence initial={false}>
+        {menuOpen && (
+          <motion.nav
+            id="sav-mobile-nav"
+            aria-label="Navigare mobil"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: .35, ease: [.2, .75, .2, 1] }}
+            className="overflow-hidden border-t border-white/10 bg-[#081923] lg:hidden"
           >
-            <PhoneIcon /> 0756 943 626
-          </a>
-          <Link
-            href="/oferta"
-            onClick={() => setMenuOpen(false)}
-            className="mt-2 rounded-md bg-orange px-3 py-3 text-center text-sm font-bold text-white"
-          >
-            Cere ofertă
-          </Link>
-          <a
-            href="https://www.facebook.com/SavHausSRL"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMenuOpen(false)}
-            className="mt-1 flex items-center gap-2 rounded-md px-3 py-2.5 text-sm font-semibold text-navy hover:bg-graybg"
-          >
-            <FacebookIcon /> Urmărește-ne pe Facebook
-          </a>
-        </nav>
+            <div className="flex flex-col gap-1 px-5 py-5 sm:px-8">
+              {links.map((link, index) => (
+                <motion.div key={link.href} initial={{ y: 8, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: index * .035 }}>
+                  <Link href={link.href} onClick={() => setMenuOpen(false)}
+                    className={"flex items-center justify-between border-b border-white/10 px-2 py-3.5 text-[15px] " + (link.href === active ? "text-[#dfc59b]" : "text-white/85")}>
+                    {link.label}<span className="text-[#d4b78d]" aria-hidden="true">↗</span>
+                  </Link>
+                </motion.div>
+              ))}
+              <a href="tel:0756943626" className="mt-3 px-2 py-3 text-sm text-white/70">0756 943 626</a>
+              <Link href="/oferta" onClick={() => setMenuOpen(false)} className="sav-gold-button mt-2 py-3 text-center text-xs font-bold">Solicită ofertă</Link>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
+      <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 h-[2px] overflow-hidden">
+        <div ref={progressRef} className="h-full w-full origin-left scale-x-0 bg-[#d4b78d]" />
       </div>
     </header>
   );
