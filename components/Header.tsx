@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { PhoneIcon } from "./Icons";
+import { SAV_LOGO_SRC } from "@/lib/brand";
 
 const links = [
   { href: "/", label: "Acasă" },
@@ -68,7 +68,7 @@ export default function Header({ active = "/" }: { active?: string }) {
         : "border-white/15 bg-[#081923]/65 backdrop-blur-xl")}>
       <div className="mx-auto flex h-[72px] w-full max-w-[1480px] items-center justify-between gap-3 px-5 transition-[height] duration-500 sm:px-8 lg:h-[86px] lg:px-12">
         <Link href="/" onClick={() => setMenuOpen(false)} aria-label="Sav Haus — Acasă" className="group flex min-w-[112px] items-center">
-          <Image src="/images/logo.png" width={150} height={80} priority alt="Sav Haus" className="h-[43px] w-auto max-w-[140px] object-contain brightness-0 invert transition-transform duration-500 group-hover:scale-[1.035] lg:h-[51px]" />
+          <img src={SAV_LOGO_SRC} width={152} height={78} alt="Sav Haus" className="h-[58px] w-auto max-w-[152px] object-contain transition-transform duration-500 group-hover:scale-[1.035] lg:h-[72px]" />
         </Link>
 
         <nav aria-label="Navigare principală" className="hidden items-center gap-1 lg:flex" onMouseLeave={() => setHovered(null)}>
@@ -83,13 +83,13 @@ export default function Header({ active = "/" }: { active?: string }) {
                 onBlur={() => setHovered(null)}
                 aria-current={active === link.href ? "page" : undefined}
                 className={"relative isolate px-4 py-3 text-[12px] font-medium tracking-[.035em] transition-colors duration-200 " +
-                  (selected ? "text-[#f4e2c4]" : "text-white/75 hover:text-white")}
+                  (selected ? "text-[#F9982D]" : "text-white/75 hover:text-white")}
               >
                 {selected && (
                   <motion.span
                     layoutId="sav-nav-indicator"
                     transition={{ type: "spring", stiffness: 420, damping: 33 }}
-                    className="absolute inset-0 -z-10 rounded-[3px] border border-[#d4b78d]/30 bg-[#d4b78d]/10"
+                    className="absolute inset-0 -z-10 rounded-[3px] border border-[#F9982D]/30 bg-[#F9982D]/10"
                   />
                 )}
                 {link.label}
@@ -138,8 +138,8 @@ export default function Header({ active = "/" }: { active?: string }) {
                 <motion.div key={link.href} initial={{ y: 8, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: index * .035 }}>
                   <Link href={link.href} onClick={() => setMenuOpen(false)}
-                    className={"flex items-center justify-between border-b border-white/10 px-2 py-3.5 text-[15px] " + (link.href === active ? "text-[#dfc59b]" : "text-white/85")}>
-                    {link.label}<span className="text-[#d4b78d]" aria-hidden="true">↗</span>
+                    className={"flex items-center justify-between border-b border-white/10 px-2 py-3.5 text-[15px] " + (link.href === active ? "text-[#F9982D]" : "text-white/85")}>
+                    {link.label}<span className="text-[#F9982D]" aria-hidden="true">↗</span>
                   </Link>
                 </motion.div>
               ))}
@@ -150,7 +150,7 @@ export default function Header({ active = "/" }: { active?: string }) {
         )}
       </AnimatePresence>
       <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 h-[2px] overflow-hidden">
-        <div ref={progressRef} className="h-full w-full origin-left scale-x-0 bg-[#d4b78d]" />
+        <div ref={progressRef} className="h-full w-full origin-left scale-x-0 bg-[#F9982D]" />
       </div>
     </header>
   );

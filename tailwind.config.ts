@@ -5,23 +5,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: "#0F1B3D",
-        "navy-soft": "#3A4566",
-        orange: "#F5A319",
-        "orange-dark": "#DB8E0E",
-        graybg: "#F5F6F8",
+        navy: "#081923",
+        "navy-soft": "#081923",
+        orange: "#F9982D",
+        "orange-dark": "#E98519",
+        graybg: "#F5F2EB",
       },
       fontFamily: {
-        sans: [
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Inter",
-          "Roboto",
-          "Helvetica Neue",
-          "Arial",
-          "sans-serif",
-        ],
+        sans: ["var(--font-manrope)", "Manrope", "Arial", "sans-serif"],
+        serif: ["var(--font-manrope)", "Manrope", "Arial", "sans-serif"],
       },
     },
   },

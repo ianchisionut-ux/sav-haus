@@ -28,15 +28,15 @@ export default function Home() {
       <section id="hero-film" className="relative h-[440svh] w-full bg-[#081923]">
         <div className="sticky top-[72px] h-[calc(100svh-72px)] min-h-[500px] overflow-hidden lg:top-[86px] lg:h-[calc(100svh-86px)]">
           <HeroScrollVideo />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#081923]/95 via-[#081923]/65 to-[#081923]/10" />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#081923]/75 via-transparent to-[#081923]/10" />
-          <div className="pointer-events-none absolute inset-0 opacity-[.08]" style={{ backgroundSize: "90px 90px", backgroundImage: "linear-gradient(#dce9e5 1px,transparent 1px),linear-gradient(90deg,#dce9e5 1px,transparent 1px)", maskImage: "linear-gradient(to right,black,transparent 70%)" }} />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#081923]/20 via-[#081923]/10 to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#081923]/12 via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 opacity-[.03]" style={{ backgroundSize: "90px 90px", backgroundImage: "linear-gradient(#dce9e5 1px,transparent 1px),linear-gradient(90deg,#dce9e5 1px,transparent 1px)", maskImage: "linear-gradient(to right,black,transparent 70%)" }} />
           <div className="relative mx-auto flex h-full max-w-[1480px] flex-col justify-center px-5 pb-16 pt-9 sm:px-8 lg:px-12">
-            <div className="mb-5 flex items-center gap-4 text-[10px] font-bold tracking-[.24em] text-[#dfc49a] sm:mb-7">
-              <span className="h-px w-10 bg-[#d4b78d]" /> SAV HAUS / CONSTRUCȚII DIN LEMN
+            <div className="mb-5 flex items-center gap-4 text-[10px] font-bold tracking-[.24em] text-[#F9982D] sm:mb-7">
+              <span className="h-px w-10 bg-[#F9982D]" /> SAV HAUS / CONSTRUCȚII DIN LEMN
             </div>
-            <h1 className="sav-display max-w-[940px] text-[clamp(48px,7.4vw,108px)] leading-[.98] tracking-[-.06em] text-white">
-              Construim case.<br /><em className="font-normal text-[#e5c99d]">Creăm acasă.</em>
+            <h1 className="sav-hero-title sav-display max-w-[940px] text-[clamp(48px,7.4vw,108px)] leading-[.98] tracking-[-.06em] text-white">
+              Construim case.<br /><em className="font-normal text-[#F9982D]">Creăm acasă.</em>
             </h1>
             <p className="mt-6 max-w-[520px] text-[14px] leading-[1.85] text-[#d8e2df] md:mt-9 md:text-[16px]">
               Case pe structură de lemn, acoperișuri și structuri speciale. De la proiectare la montaj, fiecare detaliu contează.
@@ -72,7 +72,7 @@ export default function Home() {
             ].map((model) => (
               <Link href={"/modele-case/" + model.id} key={model.id} className="sav-model-card group overflow-hidden bg-white">
                 <div className="relative aspect-[1.35] overflow-hidden"><img src={model.image} loading="lazy" alt={"Randare ilustrativă Casa "+model.id} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"/><span className="absolute left-4 top-4 bg-[#081923]/85 px-3 py-2 text-[9px] tracking-[.15em] text-white">{model.tag}</span></div>
-                <div className="flex items-center justify-between p-6"><div><span className="sav-eyebrow">MODELUL {model.id}</span><h3 className="sav-display mt-2 text-4xl">Casa {model.id}</h3><p className="mt-1 text-xs text-[#667c73]">{model.area} utili</p></div><span className="text-2xl text-[#ba9d73]">↗</span></div>
+                <div className="flex items-center justify-between p-6"><div><span className="sav-eyebrow">MODELUL {model.id}</span><h3 className="sav-display mt-2 text-4xl">Casa {model.id}</h3><p className="mt-1 text-xs text-[#667c73]">{model.area} utili</p></div><span className="text-2xl text-[#F9982D]">↗</span></div>
               </Link>
             ))}
           </div>
@@ -154,7 +154,7 @@ export default function Home() {
       {/* DE CE SAV HAUS */}
       <section className="mx-auto max-w-[1440px] px-6 pb-28 lg:px-10">
         <FadeIn>
-          <div className="bg-[#102b35] p-8 md:p-14">
+          <div className="bg-[#081923] p-8 md:p-14">
             <h2 className="sav-display text-5xl text-white md:text-7xl">
               De ce Sav Haus?
             </h2>

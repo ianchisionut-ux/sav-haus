@@ -22,7 +22,7 @@ export default function HouseModelDetail({params}:{params:{id:string}}) {
         <div className="absolute inset-0 bg-gradient-to-t from-[#081923] via-[#081923]/15 to-transparent"/>
       </div>
       <div className="relative z-10 mx-auto -mt-28 max-w-[1360px] px-6 lg:px-10">
-        <Link href="/modele-case" className="text-xs tracking-widest text-[#dfc49a] hover:text-white">← ÎNAPOI LA MODELE</Link>
+        <Link href="/modele-case" className="text-xs tracking-widest text-[#F9982D] hover:text-white">← ÎNAPOI LA MODELE</Link>
         <p className="sav-eyebrow mt-9">COLECȚIA SAV HAUS / MODELUL {model.id}</p>
         <h1 className="sav-display mt-4 text-6xl md:text-8xl">Casa <em>{model.id}</em></h1>
         <p className="mt-5 text-lg text-white/80">{model.title}</p>
@@ -40,7 +40,7 @@ export default function HouseModelDetail({params}:{params:{id:string}}) {
       <p className="sav-eyebrow">MODELUL {model.id} / COMPARTIMENTARE</p>
       <h2 className="sav-display mt-4 text-5xl md:text-7xl">Gândită pentru <em>viața de zi cu zi.</em></h2>
       <p className="mt-5 max-w-2xl text-base leading-8 text-[#60756d]">{model.description}</p>
-      {model.areaNote&&<p className="mt-5 max-w-3xl border-l-2 border-[#b08d58] bg-[#e9e2d4] p-5 text-sm leading-7">{model.areaNote}</p>}
+      {model.areaNote&&<p className="mt-5 max-w-3xl border-l-2 border-[#F9982D] bg-[#e9e2d4] p-5 text-sm leading-7">{model.areaNote}</p>}
       <div className="mt-12 grid gap-8 md:grid-cols-2">
         {model.plans.map((plan)=><div key={plan.name} className="overflow-hidden bg-white p-5 shadow-[0_15px_45px_rgba(20,50,50,.06)] md:p-8">
           <div className="mb-6 flex justify-between text-xs font-semibold uppercase tracking-[.15em]"><span>{plan.name}</span><span>PLAN DE NIVEL</span></div>

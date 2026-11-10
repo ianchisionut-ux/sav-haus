@@ -16,7 +16,7 @@ export default function ModelsPage() {
         <div className="pointer-events-none absolute inset-0 opacity-20" style={{background:"linear-gradient(120deg,#081923 18%,transparent 75%),url('"+houseModels[5].image+"') center / cover"}}/>
         <div className="relative mx-auto max-w-[1360px]">
           <p className="sav-eyebrow">SAV HAUS / COLECȚIA DE CASE / 2026</p>
-          <h1 className="sav-display mt-8 max-w-4xl text-6xl leading-[.98] md:text-8xl">Acasă începe <em className="font-normal text-[#dfc49a]">cu un plan bun.</em></h1>
+          <h1 className="sav-display mt-8 max-w-4xl text-6xl leading-[.98] md:text-8xl">Acasă începe <em className="font-normal text-[#F9982D]">cu un plan bun.</em></h1>
           <p className="mt-8 max-w-xl text-base leading-8 text-white/75">De la un parter compact la o locuință generoasă pe două niveluri. Compară modelele, vezi randările și explorează planurile.</p>
           <div className="mt-10 flex flex-wrap gap-5 text-sm text-white/70"><span>8 modele</span><span>61–165 m² utili</span><span>11 planuri</span></div>
           <a href="#colectie" className="sav-gold-button mt-10 inline-flex px-7 py-4 text-xs font-bold">Explorează modelele <span className="ml-3">↓</span></a>
@@ -36,7 +36,7 @@ export default function ModelsPage() {
               </div>
               <div className="flex items-start justify-between gap-5 p-6 md:p-8">
                 <div><p className="sav-eyebrow">MODELUL {m.id}</p><h3 className="sav-display mt-3 text-4xl">Casa {m.id}</h3><p className="mt-3 text-sm text-[#64756f]">{m.title}</p></div>
-                <span aria-hidden="true" className="text-3xl text-[#b49a71] transition-transform group-hover:translate-x-1">↗</span>
+                <span aria-hidden="true" className="text-3xl text-[#F9982D] transition-transform group-hover:translate-x-1">↗</span>
               </div>
               <div className="flex flex-wrap gap-x-8 gap-y-3 border-t border-[#e2e6df] px-6 py-5 text-xs font-semibold text-[#4e655e] md:px-8"><span>{m.area.toLocaleString("ro-RO",{maximumFractionDigits:2})} m² utili</span><span>{m.bedrooms} {m.bedrooms===1?"dormitor":"dormitoare"}</span><span>{m.floors}</span></div>
             </Link>

@@ -4,24 +4,27 @@
 
 :root {
   --sav-navy: #081923;
-  --sav-sand: #d4b78d;
+  --sav-orange: #F9982D;
+  --sav-orange-hover: #FFAC4D;
   --sav-cream: #f5f2eb;
 }
 html { scroll-behavior: smooth; }
-body { color: #102a33; background: #f5f2eb; }
-.sav-display { font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.055em; }
-.sav-display em { font-weight: 400; color: #b39469; }
-.sav-eyebrow { color: #a88353; letter-spacing: .2em; text-transform: uppercase; font-weight: 750; font-size: 10px; line-height: 1.6; }
-.sav-gold-button { background: #d4b78d; color: #102733; border: 1px solid #d4b78d; transition: transform .24s ease, background .24s ease, box-shadow .24s ease; }
-.sav-gold-button:hover { transform: translateY(-2px); background: #e4cda8; box-shadow: 0 9px 25px rgba(48,31,8,.14); }
-.sav-outline-light { color: #fff; border: 1px solid rgba(255,255,255,.4); background: rgba(8,23,32,.22); transition: background .24s ease, transform .24s ease; }
-.sav-outline-light:hover { background: rgba(255,255,255,.13); transform:translateY(-2px); }
+body { color: var(--sav-navy); background: var(--sav-cream); font-family: var(--font-manrope), Manrope, Arial, sans-serif; }
+button, input, textarea, select { font-family: inherit; }
+.sav-display { font-family: var(--font-manrope), Manrope, Arial, sans-serif; font-weight: 750; letter-spacing: -.055em; }
+.sav-display em { font-family: inherit; font-weight: 550; color: var(--sav-orange); }
+.sav-eyebrow { color: #bc6b15; letter-spacing: .2em; text-transform: uppercase; font-weight: 750; font-size: 10px; line-height: 1.6; }
+.sav-gold-button { background: var(--sav-orange); color: var(--sav-navy); border: 1px solid var(--sav-orange); transition: transform .24s ease, background .24s ease, box-shadow .24s ease; }
+.sav-gold-button:hover { transform: translateY(-2px); background: var(--sav-orange-hover); box-shadow: 0 9px 25px rgba(26,16,4,.18); }
+.sav-outline-light { color: #fff; border: 1px solid rgba(255,255,255,.48); background: rgba(8,25,35,.15); transition: background .24s ease, transform .24s ease; }
+.sav-outline-light:hover { background: rgba(255,255,255,.14); transform: translateY(-2px); }
 .sav-outline-button { transition: background .25s ease, color .25s ease; }
-.sav-outline-button:hover { background: #102733; color: #fff; }
+.sav-outline-button:hover { background: var(--sav-navy); color: #fff; }
 .sav-model-card { transition: box-shadow .35s ease, transform .35s ease; }
 .sav-model-card:hover { transform: translateY(-3px); box-shadow: 0 20px 48px rgba(23,45,41,.13); }
 .sav-collection-section { background-image: linear-gradient(rgba(16,39,42,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(16,39,42,.025) 1px,transparent 1px); background-size: 80px 80px; }
 .sav-services-section { background: #fff; }
+.sav-hero-title { text-shadow: 0 3px 22px rgba(0,0,0,.28); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .sav-gold-button, .sav-outline-light, .sav-model-card { transition: none; }

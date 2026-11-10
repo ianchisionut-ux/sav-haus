@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { SAV_LOGO_SRC } from "@/lib/brand";
 import OfertaForm from "./OfertaForm";
 import { PhoneIcon, MailIcon, MapPinIcon } from "./Icons";
 
@@ -29,7 +29,7 @@ export default function Footer({ showForm = true }: { showForm?: boolean }) {
           </div>
 
           <div className="mt-10 flex items-center gap-3 opacity-80">
-            <Image src="/images/logo.png" alt="Sav Haus" width={100} height={52} className="h-9 w-auto brightness-0 invert" />
+            <img src={SAV_LOGO_SRC} alt="Sav Haus" width={152} height={78} loading="lazy" className="h-[72px] w-auto object-contain" />
           </div>
         </div>
 
