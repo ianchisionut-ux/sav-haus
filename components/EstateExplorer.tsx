@@ -110,6 +110,7 @@ export default function EstateExplorer() {
       <h1>O casă.<br />{' '}O lume <em>a ta.</em></h1>
       <p>Opt feluri de a locui. Descoperă casa care îți seamănă, înainte să îi treci pragul.</p>
       <button className="estate-overview-button" onClick={neighborhood ? () => select(selected) : openOverview}><span aria-hidden="true">{neighborhood ? '⌂' : '▦'}</span>{neighborhood ? 'Înapoi la casa mea' : 'Explorează toate proprietățile'}<span aria-hidden="true">↗</span></button>
+      <a className="estate-wall-link" href="#perete-interactiv">Descoperă peretele în 3D <span aria-hidden="true">↓</span></a>
       <div className="estate-edition"><strong>08</strong><span>modele de case<br />61 — 165 m² utili</span></div>
     </div>
     <div className="estate-world-labels" aria-hidden={!neighborhood}>

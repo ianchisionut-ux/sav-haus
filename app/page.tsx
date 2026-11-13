@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import FadeIn from "@/components/FadeIn";
 import EstateExplorer from "@/components/EstateExplorer";
+import WallExplorer from "@/components/WallExplorer";
 import SectionDivider from "@/components/SectionDivider";
 import { projects } from "@/lib/projects";
 import {
@@ -49,6 +50,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <WallExplorer />
 
       {/* STATS BAR */}
       <section className="border-y border-[#b6b4a9]/30 bg-[#eae8df]">

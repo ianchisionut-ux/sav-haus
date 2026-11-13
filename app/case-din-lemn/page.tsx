@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
+import WallExplorer from "@/components/WallExplorer";
 
 const features = [
   { title: "Arhitectură", text: "Compartimentare adaptabilă, deschideri mari fără pereți portanți în plus." },
@@ -29,6 +30,7 @@ export default function CaseDinLemn() {
             lemn permite deschideri mari, iar izolația integrată susține
             eficiența energetică pe tot parcursul anului.
           </p>
+          <a href="#perete-interactiv" className="sav-gold-button mt-6 inline-flex items-center gap-6 px-5 py-3 text-xs font-bold">Explorează straturile peretelui în 3D <span aria-hidden="true">↓</span></a>
         </FadeIn>
 
         <FadeIn delay={0.1}>
@@ -85,6 +87,8 @@ export default function CaseDinLemn() {
           </div>
         </div>
       </section>
+
+      <WallExplorer />
 
       <Footer />
     </main>

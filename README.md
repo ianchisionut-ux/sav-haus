@@ -1,6 +1,12 @@
 # Sav Haus — Site complet (Next.js + Tailwind)
 
-## Exploratorul 3D al colecției
+## Secțiunea interactivă a peretelui
+
+`components/WallExplorer.tsx` adaugă secțiunea `#perete-interactiv` pe homepage și pe `/case-din-lemn`. `lib/wallScene.ts` se încarcă la apropierea secțiunii de viewport și construiește local cele șase straturi, cadrul, vata, copexul și prinderile, cu texturi procedurale. Nu cere asseturi sau servicii externe. Desfacerea se controlează prin buton sau slider, iar materialele se selectează direct în 3D, prin marcaje sau din lista accesibilă. Pe mobil, selecția din scenă deschide o fișă cu detalii. Scena se oprește când nu este vizibilă și resursele sunt eliberate la navigare.
+
+Textele din `lib/wallMaterials.ts` disting observațiile din filmare de identificările probabile. Grosimile, decupajele și separarea straturilor sunt ilustrative. Modelul nu certifică o anumită alcătuire de execuție, clasă de lemn, produs izolator ori membrană.
+
+## Explorarea modelelor de case
 
 Homepage-ul folosește acum `components/EstateExplorer.tsx` și motorul Three.js încărcat dinamic din `lib/estateScene.ts`, în locul hero-ului video. Cele opt proprietăți pot fi selectate din scenă, din vederea de ansamblu sau din bara de modele. Sunt disponibile rotirea, apropierea, resetarea camerei și iluminarea de zi/apus. La click apar prezentarea, infograficele și cele 11 planuri de nivel, cu datele din `lib/houseModels.ts` și `lib/housePlanDetails.ts`.
 

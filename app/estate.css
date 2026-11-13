@@ -10,3 +10,6 @@
 @media(max-width:900px) and (min-width:761px){.estate-has-details .estate-scene{right:380px}.estate-editorial h1{font-size:48px}}
 
 .estate-unavailable .estate-scene{visibility:hidden}
+
+.estate-wall-link{display:inline-flex;align-items:center;gap:22px;pointer-events:auto;color:#5c735e;font-size:10px;font-weight:600;margin-top:17px}.estate-wall-link:hover{color:#96612c}.estate-has-details .estate-wall-link{pointer-events:none}
+@media(max-width:760px){.estate-wall-link{position:absolute;top:213px;left:0;font-size:9px;margin-top:0;gap:13px}}
