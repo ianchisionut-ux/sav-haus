@@ -1,5 +1,13 @@
 # Sav Haus — Site complet (Next.js + Tailwind)
 
+## Exploratorul 3D al colecției
+
+Homepage-ul folosește acum `components/EstateExplorer.tsx` și motorul Three.js încărcat dinamic din `lib/estateScene.ts`, în locul hero-ului video. Cele opt proprietăți pot fi selectate din scenă, din vederea de ansamblu sau din bara de modele. Sunt disponibile rotirea, apropierea, resetarea camerei și iluminarea de zi/apus. La click apar prezentarea, infograficele și cele 11 planuri de nivel, cu datele din `lib/houseModels.ts` și `lib/housePlanDetails.ts`.
+
+Modelele GLB din `public/models/` sunt reconstruite vizual după catalog, cu geometrie de țiglă, materiale PBR, vegetație și loturi ilustrative. Nu provin din IFC/DWG. Geometria este comprimată Draco; decoderul este găzduit local în `public/draco/`. Se încarcă inițial doar modelul selectat (aprox. 0,6–0,9 MB), iar celelalte sunt cerute la navigare. Randarea se oprește când exploratorul nu este vizibil. Există imagini și acces la planuri și pentru browserele fără WebGL.
+
+Asseturile pot fi refăcute cu `scripts/make_textures.py` (Pillow și NumPy), apoi `blender -b --factory-startup --python scripts/build_collection.py`. Fișierul Blender editabil se salvează în `tmp/SAV_HAUS_8_Modele.blend`. `tmp/` nu este publicat. Modelul 07 păstrează nota din catalog privind diferența dintre antetele planurilor și suma încăperilor.
+
 Site de prezentare cu 5 pagini + formular de ofertă care trimite automat
 email, construit pe stack-ul tău obișnuit (Next.js, TypeScript, Tailwind,
 gata de Vercel).

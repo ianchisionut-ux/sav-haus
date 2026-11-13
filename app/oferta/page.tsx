@@ -3,13 +3,15 @@ import Footer from "@/components/Footer";
 import OfertaForm from "@/components/OfertaForm";
 import FadeIn from "@/components/FadeIn";
 import { PhoneIcon, MailIcon } from "@/components/Icons";
+import { houseModels } from "@/lib/houseModels";
 
 export const metadata = {
   title: "Cere ofertă — Sav Haus",
   description: "Trimite-ne detaliile proiectului tău și primești o estimare în 24 de ore.",
 };
 
-export default function OfertaPage() {
+export default function OfertaPage({ searchParams }: { searchParams: { model?: string } }) {
+  const selectedModel = houseModels.find(model => model.id === searchParams.model);
   return (
     <main className="min-h-screen bg-white">
       <Header />
@@ -40,7 +42,8 @@ export default function OfertaPage() {
 
         <FadeIn delay={0.1}>
           <div className="mt-10 rounded-xl bg-navy p-8 shadow-xl shadow-navy/10">
-            <OfertaForm />
+            {selectedModel && <p className="mb-5 text-sm text-white/80">Model selectat: <strong>Casa {selectedModel.id}</strong> · {selectedModel.area.toLocaleString("ro-RO")} m² utili</p>}
+            <OfertaForm initialMessage={selectedModel ? `Doresc o ofertă pentru Casa ${selectedModel.id}, ${selectedModel.area.toLocaleString("ro-RO")} m² utili, regim ${selectedModel.floors}.` : ""} />
           </div>
         </FadeIn>
       </section>

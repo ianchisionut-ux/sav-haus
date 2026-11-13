@@ -33,6 +33,7 @@ export default function HouseModelDetail({params}:{params:{id:string}}) {
         <p className="sav-eyebrow mt-9">COLECȚIA SAV HAUS / MODELUL {model.id}</p>
         <h1 className="sav-display mt-4 text-6xl md:text-8xl">Casa <em>{model.id}</em></h1>
         <p className="mt-5 text-lg text-white/80">{model.title}</p>
+        <Link href={"/?casa=" + model.id + "#exploreaza"} className="sav-gold-button mt-6 inline-flex items-center gap-6 px-5 py-3 text-xs font-bold">Explorează proprietatea în 3D <span>↗</span></Link>
         <div className="mt-10 grid max-w-4xl grid-cols-2 gap-7 border-t border-white/20 pt-7 md:grid-cols-4">
           {[
             [model.area.toLocaleString("ro-RO",{maximumFractionDigits:2})+" m²","Suprafață utilă"],

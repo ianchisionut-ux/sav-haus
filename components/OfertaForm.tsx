@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-export default function OfertaForm({ compact = false }: { compact?: boolean }) {
+export default function OfertaForm({ compact = false, initialMessage = "" }: { compact?: boolean; initialMessage?: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -86,6 +86,7 @@ export default function OfertaForm({ compact = false }: { compact?: boolean }) {
           {!compact && (
             <textarea
               name="mesaj"
+              defaultValue={initialMessage}
               rows={4}
               placeholder="Spune-ne pe scurt ce ai nevoie (suprafață, buget estimativ, termen)"
               className={inputClass}
